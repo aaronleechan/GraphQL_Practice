@@ -24,6 +24,18 @@ type User{
     password: String
 }
 
+type UserauthData{
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+}
+
+type BusinessauthData{
+    businessownerId: ID!
+    token: String!
+    tokenExpiration: Int!
+}
+
 type BusinessOwner{
     _id: ID!
     email: String!
@@ -52,6 +64,8 @@ input BusinessOwnerInput{
 type RootQuery{
     products: [Product!]!
     shoppingcarts: [Shoppingcart!]!
+    loginuser(email: String!,password: String!): UserauthData!
+    loginbusinessowner(email: String!,password: String!): BusinessauthData!
 }
 
 type RootMutation{
@@ -66,4 +80,5 @@ schema {
     query: RootQuery
     mutation: RootMutation
 }
+
 `);

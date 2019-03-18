@@ -13,6 +13,6 @@ const shoppingCart = new Schema({
     }
 },{
     timestamps: true
-})
+});
 
 module.exports = mongoose.model('ShoppingCart_dependencies',shoppingCart);
